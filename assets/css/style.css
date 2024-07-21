@@ -741,91 +741,31 @@ spanv {
 
 
 /*-----------------------------------*\
-  #DENTAL SPECIALITIES
+  #LISTING
 \*-----------------------------------*/
 
-.dental-specialties {
-  background-color: var(--alice-blue);
-  padding: 60px 0;
-  text-align: right;
-  direction: rtl;
-}
+.listing { background-color: var(--alice-blue); }
 
-.dental-specialties .section-subtitle {
-  margin-bottom: 20px;
-  color: var(--midnight-green);
-}
-
-.dental-specialties .headline-md {
-  color: var(--midnight-green);
-  margin-bottom: 40px;
-}
-
-.grid-list {
+.listing-card {
+  padding: 25px 16px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.specialty-card {
-  padding: 20px;
-  display: flex;
-  align-items: center;
   gap: 20px;
   border: 2px solid var(--middle-blue-green_40);
   border-radius: var(--radius-12);
-  background-color: var(--white);
-  transition: transform var(--transition-1), box-shadow var(--transition-1);
-  width: 100%;
-  max-width: 300px;
+  transition: var(--transition-1);
 }
 
-.specialty-card:hover, .specialty-card:focus-visible {
-  border-color: var(--verdigris);
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+.listing-card:is(:hover, :focus-visible) { border-color: var(--verdigris); }
 
-.specialty-card .card-icon img {
-  border-radius: 50%;
-  border: 2px solid var(--verdigris);
-}
-
-.specialty-card .card-title {
+.listing-card .card-title {
+  margin-block-end: 5px;
   font-family: var(--ff-oswald);
-  margin-bottom: 10px;
-  color: var(--midnight-green);
 }
 
-.specialty-card .card-text {
-  color: var(--space-cadet);
-}
+.listing-card .card-text { color: var(--midnight-green); }
 
-/* تحسين التصميم على الشاشات الصغيرة */
-@media (max-width: 768px) {
-  .specialty-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .specialty-card .card-icon {
-    margin-bottom: 10px;
-  }
-}
 
-@media (max-width: 480px) {
-  .dental-specialties .section-subtitle,
-  .dental-specialties .headline-md {
-    font-size: 1.2rem;
-  }
-
-  .specialty-card {
-    padding: 15px 10px;
-    gap: 10px;
-    max-width: 250px;
-  }
-}
 
 
 
@@ -841,6 +781,7 @@ spanv {
 
 .feedback .section-title {
   margin-block-end: 60px;
+  margin-top: 15px;
 }
 
 .grid-list {
