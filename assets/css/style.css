@@ -595,6 +595,7 @@ body.nav-active { overflow: hidden; }
 @media (max-width: 768px) {
   .hero-form .form-group {
     flex-direction: column;
+    min-width: 100%;
   }
   
   .hero-form .input-wrapper {
@@ -740,90 +741,182 @@ spanv {
 
 
 /*-----------------------------------*\
-  #LISTING
+  #DENTAL SPECIALITIES
 \*-----------------------------------*/
 
-.listing { background-color: var(--alice-blue); }
+.dental-specialties {
+  background-color: var(--alice-blue);
+  padding: 60px 0;
+  text-align: right;
+  direction: rtl;
+}
 
-.listing-card {
-  padding: 25px 16px;
+.dental-specialties .section-subtitle {
+  margin-bottom: 20px;
+  color: var(--midnight-green);
+}
+
+.dental-specialties .headline-md {
+  color: var(--midnight-green);
+  margin-bottom: 40px;
+}
+
+.grid-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.specialty-card {
+  padding: 20px;
+  display: flex;
+  align-items: center;
   gap: 20px;
   border: 2px solid var(--middle-blue-green_40);
   border-radius: var(--radius-12);
-  transition: var(--transition-1);
+  background-color: var(--white);
+  transition: transform var(--transition-1), box-shadow var(--transition-1);
+  width: 100%;
+  max-width: 300px;
 }
 
-.listing-card:is(:hover, :focus-visible) { border-color: var(--verdigris); }
+.specialty-card:hover, .specialty-card:focus-visible {
+  border-color: var(--verdigris);
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-.listing-card .card-title {
-  margin-block-end: 5px;
+.specialty-card .card-icon img {
+  border-radius: 50%;
+  border: 2px solid var(--verdigris);
+}
+
+.specialty-card .card-title {
   font-family: var(--ff-oswald);
+  margin-bottom: 10px;
+  color: var(--midnight-green);
 }
 
-.listing-card .card-text { color: var(--midnight-green); }
+.specialty-card .card-text {
+  color: var(--space-cadet);
+}
 
+/* تحسين التصميم على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .specialty-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .specialty-card .card-icon {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dental-specialties .section-subtitle,
+  .dental-specialties .headline-md {
+    font-size: 1.2rem;
+  }
+
+  .specialty-card {
+    padding: 15px 10px;
+    gap: 10px;
+    max-width: 250px;
+  }
+}
 
 
 
 
 /*-----------------------------------*\
-  #BLOG
+  #Customer Feedback
 \*-----------------------------------*/
 
-.blog {
+.feedback {
   background-image: linear-gradient(to bottom, var(--alice-blue) 60%, var(--white) 60%);
   padding-block-start: 0;
 }
 
-.blog .section-title { margin-block-end: 60px; }
-
-.blog-card {
-  padding: 50px 36px;
-  border-radius: var(--radius-12);
-  border: 2px solid var(--alice-blue);
-  background-image: url('../images/blog-card.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
+.feedback .section-title {
+  margin-block-end: 60px;
 }
 
-.blog-card::before,
-.blog-card::after {
+.grid-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.feedback-item {
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: calc(33.333% - 20px);
+}
+
+.feedback-card {
+  padding: 30px 20px;
+  border-radius: var(--radius-12);
+  border: 2px solid var(--alice-blue);
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,240,0.9));
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  text-align: right;
+}
+
+.feedback-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.feedback-card::before,
+.feedback-card::after {
+  content: '';
+  position: absolute;
   inset: 0;
   z-index: -1;
   transition: var(--transition-3);
 }
 
-.blog-card::before {
+.feedback-card::before {
   background-color: var(--midnight-green);
   opacity: 0.9;
 }
 
-.blog-card::after { background-color: var(--white); }
+.feedback-card::after {
+  background-color: var(--white);
+}
 
-.blog-card:is(:hover, :focus-within)::after { transform: translateY(100%); }
+.feedback-card:is(:hover, :focus-within)::after {
+  transform: translateY(100%);
+}
 
-.blog-card .meta-wrapper {
+.feedback-card .meta-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 5px 20px;
   margin-block-end: 12px;
+  justify-content: flex-end;
 }
 
-.blog-card .card-meta {
+.feedback-card .card-meta {
   display: flex;
   align-items: center;
   gap: 5px;
   color: var(--midnight-green);
 }
 
-.blog-card .card-meta ion-icon { font-size: 1.8rem; }
+.feedback-card .card-meta ion-icon {
+  font-size: 1.8rem;
+}
 
-.blog-card .card-meta:first-child .span { text-transform: uppercase; }
+.feedback-card .card-meta:first-child .span {
+  text-transform: uppercase;
+}
 
-.blog-card .date {
+.feedback-card .date {
   color: var(--space-cadet);
   font-weight: var(--fw-700);
   text-transform: uppercase;
@@ -831,17 +924,44 @@ spanv {
   margin-block: 16px;
 }
 
-.blog-card .btn-text {
+.feedback-card .btn-text {
   color: var(--verdigris);
   margin-block-start: 12px;
 }
 
-.blog-card :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
+.feedback-card :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
   transition: var(--transition-2);
 }
 
-.blog-card:is(:hover, :focus-within) :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
+.feedback-card:is(:hover, :focus-within) :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
   color: var(--white);
+}
+
+/* Rating Styles */
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  margin-block: 10px;
+}
+
+.rating ion-icon {
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .feedback-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 
@@ -858,12 +978,15 @@ spanv {
   background-size: contain;
   background-position: top right;
   background-repeat: no-repeat;
+  direction: rtl; /* تحديد اتجاه النصوص */
 }
 
 .footer-top {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* تكرار الأعمدة تلقائيًا */
   gap: 40px;
   padding-block-end: 60px;
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .footer-brand {
@@ -879,6 +1002,7 @@ spanv {
   align-items: flex-start;
   gap: 12px;
   margin-block-start: 12px;
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .contact-item .item-icon { font-size: 4rem; }
@@ -894,6 +1018,7 @@ spanv {
   color: var(--white);
   font-weight: var(--fw-700);
   margin-block-end: 20px;
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .footer .text { opacity: 0.7; }
@@ -903,6 +1028,7 @@ spanv {
   align-items: center;
   gap: 12px;
   margin-block-start: 20px;
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .footer .address ion-icon {
@@ -922,6 +1048,7 @@ spanv {
   border: 1px solid var(--white_a20);
   border-radius: var(--radius-4);
   padding: 8px 20px;
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .footer-form .input-field::placeholder { color: inherit; }
@@ -935,10 +1062,11 @@ spanv {
 .footer-bottom {
   padding-block: 32px;
   border-block-start: 1px solid var(--white_a20);
+  text-align: right; /* محاذاة النصوص إلى اليمين */
 }
 
 .footer-bottom .social-list {
-  justify-content: flex-start;
+  justify-content: flex-end; /* محاذاة الأيقونات إلى اليمين */
   gap: 8px;
   margin-block-start: 16px;
 }
@@ -953,6 +1081,25 @@ spanv {
 
 .footer-bottom .social-link:is(:hover, :focus-visible) { background-color: var(--verdigris); }
 
+.footer-map .map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+  height: 0;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border-radius: var(--radius-6);
+  margin-block-start: 20px;
+}
+
+.footer-map .map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 
 
