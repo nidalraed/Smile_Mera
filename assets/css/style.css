@@ -737,6 +737,17 @@ spanv {
   flex-shrink: 0;
 }
 
+.alert-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #078992;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  z-index: 1000;
+}
 
 
 

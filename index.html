@@ -9,7 +9,7 @@
   <!-- 
     - primary meta tags
   -->
-  <title>ابتسامة ميرا</title>
+  <title>عيادة ابتسامة ميرا</title>
   <meta name="title" content="Doclab">
   <meta name="description" content="This is a madical html template made by codewithsadee">
 
@@ -63,9 +63,7 @@
 
     <nav class="navbar" data-navbar>
       <div class="navbar-top">
-       <button class="nav-close-btn" aria-label="إغلاق القائمة" data-nav-toggler>
-          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-        </button>
+ 
         <a href="#" class="logo">
           <img src="assets\images\logo.png" width="100" height="30" alt="Doclab home">
         </a>
@@ -91,38 +89,8 @@
         </li>
       </ul>
     
-      <ul class="social-list">
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-twitter"></ion-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-pinterest"></ion-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-youtube"></ion-icon>
-          </a>
-        </li>
-      </ul>
     </nav>
     
-    <button class="nav-open-btn" aria-label="فتح القائمة" data-nav-toggler>
-      <ion-icon name="menu-outline"></ion-icon>
-    </button>
 
     <div class="overlay" data-nav-toggler data-overlay></div>
     <a href="#" class="logo">
@@ -145,28 +113,24 @@
 
       <section class="section hero" style="background-image: url('./assets/images/hero-bg.png')" aria-label="home">
         <div class="container">
-                    <figure class="hero-banner" data-reveal="right">
+          <figure class="hero-banner" data-reveal="right">
             <img src="./assets/images/hero-banner.png" width="590" height="517" loading="eager" alt="hero banner" class="w-100">
           </figure>
           <div class="hero-content">
             <p class="hero-subtitle has-before" data-reveal="right">مرحبا بكم في ابتسامة ميرا</p>
             <h1 class="headline-md hero-title" data-reveal="right">قم بحجز كشف واستشارة مجانية الان</h1>
-      
             <div class="hero-card" data-reveal="left">
-              <form class="hero-form">
-                <!-- Full Name and Phone Number -->
+              <form class="hero-form" id="booking-form" method="POST" action="https://script.google.com/macros/s/AKfycbz5uZdjXCje65PbuWsaUAYnOkCnioDNHhu_F_A60mHPjMXTe4toYQgCpKp5h3iBOttbgQ/exec">
                 <div class="form-group">
                   <div class="input-wrapper">
                     <label for="full-name" class="input-label">الاسم الكامل</label>
-                    <input type="text" id="full-name" name="full-name" class="input-field">
+                    <input type="text" id="full-name" name="fullName" class="input-field" required>
                   </div>
                   <div class="input-wrapper">
                     <label for="phone" class="input-label">رقم الهاتف</label>
-                    <input type="tel" id="phone" name="phone" class="input-field">
+                    <input type="tel" id="phone" name="phone" class="input-field" required>
                   </div>
                 </div>
-              
-                <!-- Email and Address -->
                 <div class="form-group">
                   <div class="input-wrapper">
                     <label for="address" class="input-label">العنوان</label>
@@ -177,12 +141,10 @@
                     <input type="email" id="email" name="email" class="input-field">
                   </div>
                 </div>
-              
-                <!-- Service Type and Payment Plan -->
                 <div class="form-group">
                   <div class="input-wrapper">
                     <label for="payment-plan" class="input-label">نوع التقسيط</label>
-                    <select id="payment-plan" name="payment-plan" class="input-field">
+                    <select id="payment-plan" name="paymentPlan" class="input-field">
                       <option value="" disabled selected>اختر نوع التقسيط</option>
                       <option value="tamara">تمارا</option>
                       <option value="tabby">تابي</option>
@@ -194,26 +156,31 @@
                     <label for="service" class="input-label">نوع الخدمة</label>
                     <select id="service" name="service" class="input-field">
                       <option value="" disabled selected>اختر نوع الخدمة</option>
-                      <option value="dental-implant">زراعة أسنان</option>
-                      <option value="hollywood-smile">ابتسامة هوليوود</option>
-                      <option value="teeth-cleaning">تنظيف أسنان</option>
-                      <option value="teeth-whitening">تبيض أسنان</option>
-                      <option value="treatments">معالجات</option>
+                      <option value="زراعة اسنان">زراعة أسنان</option>
+                      <option value="ابتسامة هوليود">ابتسامة هوليوود</option>
+                      <option value="تنظيف أسنان ">تنظيف أسنان</option>
+                      <option value="تنبيض اسنان">تبيض أسنان</option>
+                      <option value="معالجات">معالجات</option>
                     </select>
                   </div>
                 </div>
-                <!-- Submit Button -->
                 <button type="submit" class="btn">
                   <ion-icon name="send"></ion-icon>
-                  <span class="spanv">احجز موعد الآن</span>
+                  <span class="span">احجز موعد الآن</span>
                 </button>
               </form>
-              
             </div>
           </div>
         </div>
       </section>
-
+      
+      
+      
+     
+      
+<!-- https://script.google.com/macros/s/AKfycbz5uZdjXCje65PbuWsaUAYnOkCnioDNHhu_F_A60mHPjMXTe4toYQgCpKp5h3iBOttbgQ/exec -->
+      
+      
 
 <!--
   - #SERVICE
@@ -382,7 +349,7 @@
         - #LISTING
       -->
 
-      <section class="section listing" aria-labelledby="listing-label">
+      <!-- <section class="section listing" aria-labelledby="listing-label">
         <div class="container">
 
           <ul class="grid-list">
@@ -492,7 +459,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -501,7 +468,7 @@
   - #Customer Feedback
 -->
 
-<section class="section feedback" aria-labelledby="feedback-label">
+<!-- <section class="section feedback" aria-labelledby="feedback-label">
   <div class="container">
 
     <p class="section-subtitle title-lg text-center" id="feedback-label" data-reveal="bottom">
@@ -618,7 +585,7 @@
     </ul>
 
   </div>
-</section>
+</section> -->
 
 
     </article>
@@ -697,7 +664,7 @@
           <ion-icon name="map-outline"></ion-icon>
 
           <span class="text">
-            عمان، الأردن <br>
+            الرياض، السعودية<br>
           </span>
         </address>
 
@@ -710,24 +677,10 @@
         </li>
 
         <li>
-          <a href="#" class="text footer-link">الشروط</a>
-        </li>
-
-        <li>
           <a href="#" class="text footer-link">القائمة</a>
         </li>
 
-        <li>
-          <a href="#" class="text footer-link">كيف يعمل</a>
-        </li>
 
-        <li>
-          <a href="#" class="text footer-link">ما نقدمه</a>
-        </li>
-
-        <li>
-          <a href="#" class="text footer-link">أحدث الأخبار</a>
-        </li>
 
         <li>
           <a href="#" class="text footer-link">اتصل بنا</a>
@@ -742,10 +695,6 @@
         </li>
 
         <li>
-          <a href="#" class="text footer-link">الشروط</a>
-        </li>
-
-        <li>
           <a href="#" class="text footer-link">شروط الاستخدام</a>
         </li>
 
@@ -753,13 +702,7 @@
           <a href="#" class="text footer-link">خدماتنا</a>
         </li>
 
-        <li>
-          <a href="#" class="text footer-link">انضم كطبيب</a>
-        </li>
 
-        <li>
-          <a href="#" class="text footer-link">قائمة الضيوف الجدد</a>
-        </li>
 
         <li>
           <a href="#" class="text footer-link">قائمة الفريق</a>
