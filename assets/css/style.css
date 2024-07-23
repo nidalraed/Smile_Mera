@@ -519,7 +519,7 @@ body.nav-active { overflow: hidden; }
 }
 
 .hero-subtitle::before {
-  top: 60%;
+  top: 100%;
   right: 0;
   width: 100px;
   height: 3px;
@@ -727,7 +727,7 @@ body.nav-active { overflow: hidden; }
   letter-spacing: 0.5rem;
 }
 
-spanv {
+.spanv {
   text-transform: uppercase;
   display: block;
   font-size: 1.2rem;
@@ -764,7 +764,7 @@ spanv {
 .tab-btn {
   background-color: var(--alice-blue);
   color: var(--midnight-green);
-  padding: 7px 30px;
+  padding: 7px 20px;
   border-radius: var(--radius-6);
   font-weight: var(--fw-700);
 }
@@ -799,7 +799,15 @@ spanv {
   font-size: 2rem;
   flex-shrink: 0;
 }
+@media (max-width: 768px) { /* يمكنك تعديل الحجم وفقاً لاحتياجاتك */
+  .tab-list {
+    flex-direction: row; /* التبديل إلى عمود لعرض التبويبات بشكل عمودي على الشاشات الصغيرة */
+  }
 
+  .tab-btn {
+    margin-bottom: 10px; /* إضافة مسافة بين التبويبات عند وضعها في عمود */
+  }
+}
 
 
 
@@ -964,6 +972,38 @@ spanv {
   }
 }
 
+.section__card-content {
+  display: flex;
+  align-items: flex-start; /* لضبط المحاذاة العمودية */
+  gap: 1rem; /* المسافة بين الصورة والمحتوى */
+}
+
+.section__card img {
+  max-width: 100px;
+  border-radius: 100%;
+  border: 2px solid var(--primary-color1);
+  transition: 0.3s;
+  
+}
+
+.section__card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* لضبط المحاذاة العمودية للمحتوى */
+}
+
+.section__card-rating {
+  display: flex;
+  margin-top: 0.5rem;
+  color: var(--primary-color1);
+}
+
+.section__card-rating i {
+  font-size: 1.5rem;
+  margin-right: 0.2rem;
+}
+
+
 
 
 
@@ -980,6 +1020,7 @@ spanv {
   background-position: top right;
   background-repeat: no-repeat;
   direction: rtl; /* تحديد اتجاه النصوص */
+  padding-bottom: 10px;
 }
 
 .footer-top {
