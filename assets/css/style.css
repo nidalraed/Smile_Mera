@@ -672,6 +672,8 @@ body.nav-active { overflow: hidden; }
     @media (max-width: 600px) {
       .banner-section {
         padding: 10px;
+        overflow: hidden; /* للتأكد من عدم خروج محتويات البانر عن الحدود */
+
       }
 
       .banner-image {
