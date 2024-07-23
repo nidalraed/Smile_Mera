@@ -481,8 +481,8 @@ body.nav-active { overflow: hidden; }
 .call-button {
   position: fixed;
   bottom: 20px;
-  right: 10px;
-  background-color: #0b0474f1;
+  right: 20px;
+  background-color: var(--verdigris);
   color: white;
   border: none;
   border-radius: 40px;

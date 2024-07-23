@@ -178,7 +178,35 @@ document.getElementById('booking-form').addEventListener('submit', function(even
 
 
 
+// document.getElementById('booking-form').addEventListener('submit', function(e) {
+//   e.preventDefault(); // منع إرسال النموذج بشكل افتراضي
 
+//   // الحصول على البيانات من النموذج
+//   const formData = new FormData(this);
+//   const data = {};
+//   formData.forEach((value, key) => {
+//       data[key] = value;
+//   });
+
+//   // إرسال البيانات إلى Google Sheets API عبر Google Apps Script
+//   fetch('https://script.google.com/macros/s/AKfycbyxo5gMdGvH1FLA5bybm85HQUBWDMYREfMPyRZwPNdHYzRHLKZTy33fdDCZBKULA6lNow/exec', {
+//       method: 'POST',
+//       headers: {
+//           'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(data),
+//       mode: 'cors' // تأكد من أنك تستخدم وضع cors
+//   })
+//   .then(response => response.text()) // استخدم text() لأن Google Apps Script يعيد نصوص وليس JSON
+//   .then(responseText => {
+//       alert('Success:', responseText);
+//       // يمكنك إضافة تعليمات هنا لإظهار رسالة نجاح للمستخدم
+//   })
+//   .catch((error) => {
+//     alert('Error:', error);
+//       // يمكنك إضافة تعليمات هنا لإظهار رسالة خطأ للمستخدم
+//   });
+// });
 
 
 
