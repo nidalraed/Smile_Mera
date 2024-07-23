@@ -30,6 +30,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
     <link
   rel="stylesheet"
@@ -122,7 +124,6 @@
      <!-- 
         - #HERO
       -->
-
       <section class="section hero" style="background-image: url('./assets/images/hero-bg.png')" aria-label="home">
         <div class="container">
           <figure class="hero-banner" data-reveal="right">
@@ -132,7 +133,7 @@
             <p class="hero-subtitle has-before" data-reveal="right">مرحبا بكم في عيادة ابتسامة ميرا</p>
             <h1 class="headline-md hero-title" data-reveal="right">قم بحجز كشف واستشارة مجانية الان</h1>
             <div class="hero-card" data-reveal="left">
-              <form class="hero-form" id="booking-form" method="POST" action="https://script.google.com/macros/s/AKfycbyxo5gMdGvH1FLA5bybm85HQUBWDMYREfMPyRZwPNdHYzRHLKZTy33fdDCZBKULA6lNow/exec" >
+              <form class="hero-form" id="booking-form" method="POST" action="https://script.google.com/macros/s/AKfycbyxo5gMdGvH1FLA5bybm85HQUBWDMYREfMPyRZwPNdHYzRHLKZTy33fdDCZBKULA6lNow/exec">
                 <div class="form-group">
                   <div class="input-wrapper">
                     <label for="full-name" class="input-label">الاسم الكامل</label>
@@ -181,53 +182,58 @@
                   <span class="span">احجز موعد الآن</span>
                 </button>
               </form>
-              
             </div>
-            
           </div>
-          
+        </div>      
+        <!-- البانر الجديد -->
+        <div class="banner-section">
+          <img src="assets/images/banner.jpeg" alt="Banner Image" class="banner-image">
         </div>
-        
       </section>
+    
+    
+      <!-- البانر الجديد -->
 
-<!-- <script>
-  document.getElementById('booking-form').addEventListener('submit', function(e) {
-  e.preventDefault(); // منع إرسال النموذج بشكل افتراضي
 
-  // الحصول على البيانات من النموذج
-  const formData = new FormData(this);
-  const data = {};
-  formData.forEach((value, key) => {
-      data[key] = value;
-  });
-
-  // إرسال البيانات إلى Google Sheets API عبر Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbyxo5gMdGvH1FLA5bybm85HQUBWDMYREfMPyRZwPNdHYzRHLKZTy33fdDCZBKULA6lNow/exec', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-      mode: 'cors' // تأكد من أنك تستخدم وضع cors
-  })
-  .then(response => response.text()) // استخدم text() لأن Google Apps Script يعيد نصوص وليس JSON
-  .then(responseText => {
-      alert('Success:', responseText);
-      // يمكنك إضافة تعليمات هنا لإظهار رسالة نجاح للمستخدم
-  })
-  .catch((error) => {
-    alert('Error:', error);
-      // يمكنك إضافة تعليمات هنا لإظهار رسالة خطأ للمستخدم
-  });
-});
-</script> -->
+      <script>
+        document.getElementById("booking-form").addEventListener("submit", function(event) {
+          event.preventDefault();
+          const form = event.target;
+          const submitButton = form.querySelector("button[type='submit']");
+          submitButton.disabled = true;
+          submitButton.querySelector("span").innerText = "يرجى الانتظار، جارٍ حجز الموعد";
       
+          const formData = new FormData(form);
+          fetch(form.action, {
+            method: "POST",
+            body: new URLSearchParams(formData)
+          })
+          .then(response => response.text())
+          .then(result => {
+            Swal.fire({
+              title: 'تم بنجاح!',
+              text: 'شكراً لك، تم حجز الموعد بنجاح',
+              icon: 'success',
+              confirmButtonText: 'موافق'
+            });
+            form.reset();
+          })
+          .catch(error => {
+            Swal.fire({
+              title: 'حدث خطأ!',
+              text: 'فشل في حجز الموعد: ' + error.message,
+              icon: 'error',
+              confirmButtonText: 'موافق'
+            });
+          })
+          .finally(() => {
+            submitButton.disabled = false;
+            submitButton.querySelector("span").innerText = "احجز موعد الآن";
+          });
+        });
+      </script>
       
-      
-     
-      
-<!-- https://script.google.com/macros/s/AKfycbz5uZdjXCje65PbuWsaUAYnOkCnioDNHhu_F_A60mHPjMXTe4toYQgCpKp5h3iBOttbgQ/exec -->
-      
+            
       
 
 <!--
@@ -366,127 +372,6 @@
   </div>
 </section>
 
-
-
-
-
-
-
-      <!-- 
-        - #LISTING
-      -->
-
-      <!-- <section class="section listing" aria-labelledby="listing-label">
-        <div class="container">
-
-          <ul class="grid-list">
-
-            <li>
-              <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Doctors Listig</p>
-
-              <h2 class="headline-md" data-reveal="left">Browse by specialist</h2>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-1.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Psychiatry</h3>
-
-                  <p class="card-text">Porta velit</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-2.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Gynecology</h3>
-
-                  <p class="card-text">Mattis augue</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-4.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Pulmonology</h3>
-
-                  <p class="card-text">Mauris laoreet</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-5.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Orthopedics</h3>
-
-                  <p class="card-text">Convallis vulputate</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-6.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Pediatrics</h3>
-
-                  <p class="card-text">Posuere maecenas</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-7.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Osteology</h3>
-
-                  <p class="card-text">Nisi nullam</p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section> -->
 
 
 
@@ -838,6 +723,7 @@
   <!-- 
     - ionicon link
   -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
