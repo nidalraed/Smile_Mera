@@ -70,6 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+const swiper = new Swiper(".swiper-container", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});
+
 /**
  * HEADER & BACK TOP BTN
  * 
@@ -155,31 +179,6 @@ document.getElementById('booking-form').addEventListener('submit', function(even
 
 
 
-// function submitForm(event) {
-//   event.preventDefault();
-
-//   // جمع البيانات من النموذج
-//   const formData = new FormData(event.target);
-//   const data = Object.fromEntries(formData.entries());
-
-//   // إرسال البيانات إلى Google Apps Script
-//   fetch('https://script.google.com/macros/s/AKfycbxFD5yiwf_F1WjQ3pAuRppUrdTL1H02LxcfXrPUgx5Vmmuwbvw6TqK_gUghasomzML4JA/exec', {
-//     method: 'POST',
-//     body: new URLSearchParams(data),
-//   })
-//   .then(response => response.json())
-//   .then(result => {
-//     if (result.status === 'Success') {
-//       alert('تم حجز الموعد بنجاح');
-//       document.getElementById('booking-form').reset();
-//     } else {
-//       alert('حدث خطأ أثناء حجز الموعد: ' + result.message);
-//     }
-//   })
-//   .catch(error => {
-//     alert('حدث خطأ أثناء حجز الموعد: ' + error.message);
-//   });
-// }
 
 
 
