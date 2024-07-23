@@ -640,32 +640,30 @@ body.nav-active { overflow: hidden; }
       background-color: #f0f8ff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* للتأكد من عدم خروج محتويات البانر عن الحدود */
-      flex-direction: column; /* ترتيب العناصر بشكل عمودي */
-      text-align: center; /* محاذاة النص في الوسط */
+      flex-direction: column;
+      text-align: center;
     }
 
     .banner-image {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
-      max-height: 150px; /* تحديد ارتفاع الصورة */
     }
+
 
     /* استعلامات الوسائط لشاشات الجوال */
     @media (max-width: 600px) {
       .banner-section {
         padding: 10px;
-        overflow: hidden; /* للتأكد من عدم خروج محتويات البانر عن الحدود */
-
+        margin-top: 15px;
       }
 
       .banner-image {
-        max-height: 100px; /* تقليل ارتفاع الصورة */
+        max-height: 100px;
       }
 
-    }
 
+    }
 
  
 
